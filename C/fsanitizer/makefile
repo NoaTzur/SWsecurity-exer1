@@ -4,6 +4,10 @@ FLAGS=-Wall
 
 all: main1 main2 main3 main1_with main2_with main3_with
 
+with: main1 main2 main3
+
+without: main1_with main2_with main3_with
+
 main1_with:
 	$(CC) leak.c -o leak_with_fs -fsanitize=leak
 	
@@ -25,9 +29,7 @@ main2:
 main3:
 	$(CC) stack_overflow.c -o stack_overflow
 	
-	
-	
-	
+
 
 .PHONY: clean all
 
